@@ -28,19 +28,15 @@ public class ClientController {
 
     @PostMapping
     public Client Add(@RequestBody Client client) {
-        return this.serviceClient.add(client);
+        return this.serviceClient.save(client);
     }
 
     @DeleteMapping("/{id}")
     public void DeleteById(@PathVariable int id) {
-        this.serviceClient.delete(id);
+        this.serviceClient.deleteById(id);
     }
 
-    @PutMapping("/{id}")
-    Client Update(@RequestBody Client client, @PathVariable int id) {
-        return this.serviceClient.update(client,id);
-    }
-
+  
 
 
 

@@ -1,36 +1,40 @@
 package ma.gestion.contrat.services;
 
-import ma.gestion.contrat.dao.IDaoCrudsOperations;
-import ma.gestion.contrat.models.Client;
-import ma.gestion.contrat.repository.ICruds;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import ma.gestion.contrat.models.Client;
+import ma.gestion.contrat.repository.IClient;
+
 @Service
-public class ClientService implements IDaoCrudsOperations<Client> {
+public class ClientService  {
 
 
-    private ICruds<Client,Integer> clientIntegerICruds;
+	@Autowired
+    private IClient dao;
 
-    @Autowired
-    public ClientService(ICruds<Client, Integer> clientIntegerICruds) {
-        this.clientIntegerICruds = clientIntegerICruds;
-    }
+	public void deleteById(Integer id) {
+		dao.deleteById(id);
+	}
 
-    @Override
-    public Client add(Client obj) {
-        return this.clientIntegerICruds.save(obj);
-    }
+	public List<Client> findAll() {
+		return dao.findAll();
+	}
 
-    @Override
-    public void delete(int id) {
-        this.clientIntegerICruds.deleteById(id);
-    }
+	public Optional<Client> findById(Integer id) {
+		return dao.findById(id);
+	}
 
-    @Override
+	public <S extends Client> S save(S entity) {
+		return dao.save(entity);
+	}
+
+   
+
+   /* @Override
     public Client update(Client obj, int id) {
         return this.clientIntegerICruds.findById(id)
                 .map( item -> {
@@ -43,16 +47,8 @@ public class ClientService implements IDaoCrudsOperations<Client> {
                     obj.setId(id);
                     return this.clientIntegerICruds.save(obj);
                 });
-    }
+    }*/
 
-    @Override
-    public List<Client> findAll() {
-        return (List<Client>) this.clientIntegerICruds.findAll();
-    }
-
-    @Override
-    public Optional<Client> findById(int id) {
-        return (Optional<Client>)this.clientIntegerICruds.findById(id);
-    }
+ 
 }
 

@@ -28,17 +28,13 @@ public class FournisseurController {
 
     @PostMapping
     public Fournisseur Add(@RequestBody Fournisseur fournisseur) {
-        return this.serviceFournisseur.add(fournisseur);
+        return this.serviceFournisseur.save(fournisseur);
     }
 
     @DeleteMapping("/{id}")
     public void DeleteById(@PathVariable int id) {
-        this.serviceFournisseur.delete(id);
+        this.serviceFournisseur.deleteById(id);
     }
 
-    @PutMapping("/{id}")
-    Fournisseur Update(@RequestBody Fournisseur fournisseur, @PathVariable int id) {
-        return this.serviceFournisseur.update(fournisseur,id);
-    }
 
 }
