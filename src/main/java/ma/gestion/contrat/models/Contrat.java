@@ -60,6 +60,18 @@ public class Contrat {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public Set<ContratProduit> getContratProduits() {
+		return contratProduits;
+	}
+	public void setContratProduits(Set<ContratProduit> contratProduits) {
+		this.contratProduits = contratProduits;
+	}
+	public Client getClient() {
+		return client;
+	}
+	public void setClient(Client client) {
+		this.client = client;
+	}
 	
 	
 

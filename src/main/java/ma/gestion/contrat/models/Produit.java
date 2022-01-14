@@ -20,11 +20,12 @@ public class Produit {
 	@OneToMany(mappedBy = "produit")
 	Set<ContratProduit> contratProduits;
 	
+	@OneToMany(mappedBy = "produit")
+	Set<DevisProduit> devisProduits;
+	
 	public Produit() {
 		
 	}
-
-
 	public int getId() {
 		return id;
 	}
