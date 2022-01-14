@@ -7,7 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
 public class Contrat {
@@ -21,8 +24,8 @@ public class Contrat {
 	private String status;
 	@OneToMany(mappedBy = "contrat")
 	Set<ContratProduit> contratProduits;
-	
-	
+	@ManyToOne
+	private Client client;
 	
 	public Contrat() {
 	

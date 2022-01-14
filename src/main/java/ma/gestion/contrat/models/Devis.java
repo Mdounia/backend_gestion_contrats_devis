@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Devis {
@@ -11,6 +12,8 @@ public class Devis {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int code;
 	private String libelle;
+	@ManyToOne
+	private Client client;
 	
 	
 	public Devis() {
