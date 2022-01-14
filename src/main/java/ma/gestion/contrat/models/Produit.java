@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Produit {
 	
@@ -17,9 +19,10 @@ public class Produit {
 	private String libelle;
 	private String descriptrion;
 	private float prix;
+	@JsonIgnore
 	@OneToMany(mappedBy = "produit")
 	Set<ContratProduit> contratProduits;
-	
+	@JsonIgnore
 	@OneToMany(mappedBy = "produit")
 	Set<DevisProduit> devisProduits;
 	
