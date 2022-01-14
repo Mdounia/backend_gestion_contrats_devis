@@ -18,25 +18,22 @@ public class ClientController {
         this.serviceClient = serviceClient;
     }
 
-    @GetMapping
+    @GetMapping("all")
     public List<Client> GetAll(){
         return this.serviceClient.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Optional<Client> GetByID(@PathVariable int id) {return this.serviceClient.findById(id);}
-
-    @PostMapping
+    @PostMapping("create")
     public Client Add(@RequestBody Client client) {
         return this.serviceClient.save(client);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     public void DeleteById(@PathVariable int id) {
         this.serviceClient.deleteById(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("update/{id}")
 	public Client update(@RequestBody Client client,@PathVariable int id) {
 		return serviceClient.update(client, id);
 	}

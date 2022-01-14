@@ -18,25 +18,22 @@ public class FournisseurController {
         this.serviceFournisseur = serviceFournisseur;
     }
 
-    @GetMapping("")
+    @GetMapping("all")
     public List<Fournisseur> GetAll(){
         return this.serviceFournisseur.findAll();
     }
-
-    @GetMapping("/{id}")
-    public Optional<Fournisseur> GetByID(@PathVariable int id) {return this.serviceFournisseur.findById(id);}
 
     @PostMapping("/create")
     public Fournisseur Add(@RequestBody Fournisseur fournisseur) {
         return this.serviceFournisseur.save(fournisseur);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("id/{id}")
     public void DeleteById(@PathVariable int id) {
         this.serviceFournisseur.deleteById(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("update/{id}")
 	public Fournisseur update(@RequestBody Fournisseur fournisseur,@PathVariable int id) {
 		return serviceFournisseur.update(fournisseur, id);
 	}
