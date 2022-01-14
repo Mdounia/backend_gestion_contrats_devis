@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/Fournisseur")
+@RequestMapping("/api/fournisseur")
 public class FournisseurController {
     private final FournisseurService serviceFournisseur;
 
@@ -18,7 +18,7 @@ public class FournisseurController {
         this.serviceFournisseur = serviceFournisseur;
     }
 
-    @GetMapping
+    @GetMapping("")
     public List<Fournisseur> GetAll(){
         return this.serviceFournisseur.findAll();
     }
@@ -26,7 +26,7 @@ public class FournisseurController {
     @GetMapping("/{id}")
     public Optional<Fournisseur> GetByID(@PathVariable int id) {return this.serviceFournisseur.findById(id);}
 
-    @PostMapping
+    @PostMapping("/create")
     public Fournisseur Add(@RequestBody Fournisseur fournisseur) {
         return this.serviceFournisseur.save(fournisseur);
     }
@@ -36,5 +36,12 @@ public class FournisseurController {
         this.serviceFournisseur.deleteById(id);
     }
 
+    @PutMapping("/{id}")
+	public Fournisseur update(@RequestBody Fournisseur fournisseur,@PathVariable int id) {
+		return serviceFournisseur.update(fournisseur, id);
+	}
+
+    
+    
 
 }

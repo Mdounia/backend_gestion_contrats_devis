@@ -16,7 +16,6 @@ public class DevisProduitkey implements Serializable{
 	public DevisProduitkey() {
 		
 	}
-
 	public int getDevis() {
 		return devis;
 	}

@@ -32,22 +32,17 @@ public class ClientService  {
 		return dao.save(entity);
 	}
 
-   
-
-   /* @Override
-    public Client update(Client obj, int id) {
-        return this.clientIntegerICruds.findById(id)
-                .map( item -> {
-                    item.setAddresse(obj.getAddresse());
-                    item.setFirstname(obj.getFirstname());
-                    item.setLastname(obj.getLastname());
-                    item.setEmail(obj.getEmail());
-                    return this.clientIntegerICruds.save(item);
-                }).orElseGet(() -> {
-                    obj.setId(id);
-                    return this.clientIntegerICruds.save(obj);
-                });
-    }*/
+    public Client update(Client client, int id) {
+       Client cl=new Client();
+       cl=this.findById(id).get();
+       cl.setFirstname(client.getFirstname());
+       cl.setLastname(client.getLastname());
+       cl.setEmail(client.getEmail());
+       cl.setTelephone(client.getTelephone());
+       cl.setAddresse(client.getAddresse());
+       this.save(cl); 
+       return cl;
+    }
 
  
 }

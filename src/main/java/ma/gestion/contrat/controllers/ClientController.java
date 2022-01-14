@@ -36,6 +36,11 @@ public class ClientController {
         this.serviceClient.deleteById(id);
     }
 
+    @PutMapping("/{id}")
+	public Client update(@RequestBody Client client,@PathVariable int id) {
+		return serviceClient.update(client, id);
+	}
+
   
 
 

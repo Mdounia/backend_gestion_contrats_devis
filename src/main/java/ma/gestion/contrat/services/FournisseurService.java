@@ -29,5 +29,16 @@ public class FournisseurService {
 	public <S extends Fournisseur> S save(S entity) {
 		return dao.save(entity);
 	}
+	
+	public Fournisseur update(Fournisseur fournisseur, int id) {
+		Fournisseur fr=new Fournisseur();
+		fr=this.findById(id).get();
+		fr.setName(fournisseur.getName());
+		fr.setEmail(fournisseur.getEmail());
+		fr.setTelephone(fournisseur.getTelephone());
+		fr.setAdresse(fournisseur.getAdresse());
+		this.save(fr);
+		return fr;
+	}
 
 }
