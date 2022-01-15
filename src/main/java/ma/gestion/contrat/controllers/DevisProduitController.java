@@ -9,26 +9,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ma.gestion.contrat.models.ContratProduit;
-import ma.gestion.contrat.services.ContratProduitService;
+import ma.gestion.contrat.models.DevisProduit;
+import ma.gestion.contrat.services.DevisProduitService;
 
 @RestController
-@RequestMapping("api/contrat/ligneProduit")
-public class ContratProduitController {
+@RequestMapping("api/devis/ligneProduit")
+public class DevisProduitController {
+	
 	@Autowired
-	private ContratProduitService service;
+	private DevisProduitService service;
+
 
 	@PostMapping("create")
-	public ContratProduit save(@RequestBody ContratProduit entity) {
+	public DevisProduit save(@RequestBody DevisProduit entity) {
 		return service.save(entity);
 	}
 
 	@GetMapping("all")
-	public List<ContratProduit> findAll() {
+	public List<DevisProduit> findAll() {
 		return service.findAll();
 	}
-	
-	
 	
 	
 

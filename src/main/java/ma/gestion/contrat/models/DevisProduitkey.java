@@ -7,7 +7,10 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class DevisProduitkey implements Serializable{
-	 @Column(name = "devis")
+
+	private static final long serialVersionUID = 1L;
+
+	@Column(name = "devis")
 	 int devis;
 
 	 @Column(name = "produit")
@@ -16,6 +19,12 @@ public class DevisProduitkey implements Serializable{
 	public DevisProduitkey() {
 		
 	}
+	
+	public DevisProduitkey(int devis, int produit) {
+		this.devis = devis;
+		this.produit = produit;
+	}
+
 	public int getDevis() {
 		return devis;
 	}
@@ -56,7 +65,6 @@ public class DevisProduitkey implements Serializable{
 			return false;
 		return true;
 	}
-	
 
 
 }

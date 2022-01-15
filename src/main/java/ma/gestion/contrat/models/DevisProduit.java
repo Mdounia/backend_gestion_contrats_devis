@@ -11,13 +11,14 @@ import javax.persistence.MapsId;
 @Entity
 public class DevisProduit {
 	@EmbeddedId
-	private DevisProduitkey id;
-	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	private DevisProduitkey id=new DevisProduitkey();
+	
+	@ManyToOne
 	@MapsId("devis")
 	@JoinColumn(name = "devis")
 	private Devis devis;
 	
-	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@ManyToOne
 	@MapsId("produit")
 	@JoinColumn(name = "produit")
 	private Produit produit;

@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Devis {
 	@Id
@@ -16,6 +18,7 @@ public class Devis {
 	private int code;
 	private String libelle;
 	@OneToMany(mappedBy = "devis")
+	@JsonIgnore
 	Set<DevisProduit> devisProduits;
 	@ManyToOne
 	private Client client;
