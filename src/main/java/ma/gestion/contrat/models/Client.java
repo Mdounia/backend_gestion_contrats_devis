@@ -20,14 +20,6 @@ public class Client {
     public Client() {
     }
 
-    public Client(int id, String firstname, String lastname, String email, int telephone, int addresse) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.telephone = telephone;
-        this.addresse = addresse;
-    }
 
     public int getId() {
         return id;

@@ -21,14 +21,15 @@ public class Produit {
 	private float prix;
 	@JsonIgnore
 	@OneToMany(mappedBy = "produit")
-	Set<ContratProduit> contratProduits;
+	private Set<ContratProduit> contratProduits;
 	@JsonIgnore
 	@OneToMany(mappedBy = "produit")
-	Set<DevisProduit> devisProduits;
+	private Set<DevisProduit> devisProduits;	
 	
 	public Produit() {
 		
 	}
+
 	public int getId() {
 		return id;
 	}
@@ -66,6 +67,33 @@ public class Produit {
 
 	public void setPrix(float prix) {
 		this.prix = prix;
+	}
+
+
+	public Set<ContratProduit> getContratProduits() {
+		return contratProduits;
+	}
+
+
+	public void setContratProduits(Set<ContratProduit> contratProduits) {
+		this.contratProduits = contratProduits;
+	}
+
+
+	public Set<DevisProduit> getDevisProduits() {
+		return devisProduits;
+	}
+
+
+	public void setDevisProduits(Set<DevisProduit> devisProduits) {
+		this.devisProduits = devisProduits;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Produit [id=" + id + ", libelle=" + libelle + ", descriptrion=" + descriptrion + ", prix=" + prix
+				+ ", contratProduits=" + contratProduits + ", devisProduits=" + devisProduits + "]";
 	}
 	
 	

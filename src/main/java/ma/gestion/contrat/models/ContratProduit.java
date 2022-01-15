@@ -10,17 +10,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class ContratProduit {
 	@EmbeddedId
-	private ContratProduitKey id;
+	private ContratProduitKey id = new ContratProduitKey();
 
-	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@ManyToOne
 	@MapsId("contrat")
 	@JoinColumn(name = "contrat")
 	private Contrat contrat;
-
-	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	
+	@ManyToOne
 	@MapsId("produit")
 	@JoinColumn(name = "produit")
 	private Produit produit;
@@ -28,8 +30,9 @@ public class ContratProduit {
 	private int quantite;
 	private float montant;
 	
-	public ContratProduit() {
 
+	public ContratProduit() {
+		
 	}
 
 	public ContratProduitKey getId() {
@@ -70,6 +73,12 @@ public class ContratProduit {
 
 	public void setMontant(float montant) {
 		this.montant = montant;
+	}
+
+	@Override
+	public String toString() {
+		return "ContratProduit [id=" + id + ", contrat=" + contrat + ", produit=" + produit + ", quantite=" + quantite
+				+ ", montant=" + montant + "]";
 	}
 	
 
