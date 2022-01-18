@@ -31,7 +31,7 @@ public class Contrat {
 	private Set<ContratProduit> contratProduits=new HashSet<ContratProduit>();
 	@ManyToOne
 	private Client client;
-		
+	
 	public Contrat() {
 
 	}
@@ -91,6 +91,13 @@ public class Contrat {
 
 	public void setClient(Client client) {
 		this.client = client;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Contrat [numero=" + numero + ", description=" + description + ", dateDebut=" + dateDebut + ", dateFin="
+				+ dateFin + ", status=" + status + ", contratProduits=" + contratProduits + ", client=" + client.getEmail() + "]";
 	}
 
 	

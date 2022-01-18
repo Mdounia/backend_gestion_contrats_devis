@@ -16,23 +16,33 @@ public class ClientService  {
 	@Autowired
     private IClient dao;
 
+	
+
+    public List<Client> findAll() {
+		return dao.findAll();
+	}
+
+
+
 	public void deleteById(Integer id) {
 		dao.deleteById(id);
 	}
 
-	public List<Client> findAll() {
-		return dao.findAll();
-	}
+
 
 	public Optional<Client> findById(Integer id) {
 		return dao.findById(id);
 	}
 
+
+
 	public <S extends Client> S save(S entity) {
 		return dao.save(entity);
 	}
 
-    public Client update(Client client, int id) {
+
+
+	public Client update(Client client, int id) {
        Client cl=new Client();
        cl=this.findById(id).get();
        cl.setFirstname(client.getFirstname());

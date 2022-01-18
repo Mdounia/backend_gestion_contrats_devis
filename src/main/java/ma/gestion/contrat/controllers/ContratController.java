@@ -16,29 +16,29 @@ import ma.gestion.contrat.models.Contrat;
 import ma.gestion.contrat.services.ContratService;
 
 @RestController
-@CrossOrigin
-@RequestMapping("/api/contrat")
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/v1/")
 public class ContratController {
 
 	@Autowired
 	private ContratService service;
 
-	@DeleteMapping("delete/{id}")
+	@DeleteMapping("/contrats/delete/{id}")
 	public void deleteById(@PathVariable Integer id) {
 		service.deleteById(id);
 	}
 
-	@GetMapping("all")
+	@GetMapping("/contrats")
 	public List<Contrat> findAll() {
 		return service.findAll();
 	}
 
-	@GetMapping("id/{id}")
+	@GetMapping("/contrats/id/{id}")
 	public Contrat findById(@PathVariable Integer id) {
 		return service.findById(id).get();
 	}
 
-	@PostMapping("create")
+	@PostMapping("/contrats")
 	public Contrat save(@RequestBody Contrat contrat) {
 		return service.save(contrat);
 	}

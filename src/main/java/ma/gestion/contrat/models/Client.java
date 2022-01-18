@@ -68,4 +68,11 @@ public class Client {
     public void setAddresse(int addresse) {
         this.addresse = addresse;
     }
+
+
+	@Override
+	public String toString() {
+		return "Client [email=" + email + "]";
+	}
+    
 }

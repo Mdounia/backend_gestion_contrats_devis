@@ -10,16 +10,14 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/client")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ClientController {
-    private final ClientService serviceClient;
+	@Autowired
+    private ClientService serviceClient;
 
-    @Autowired
-    public ClientController(ClientService serviceClient) {
-        this.serviceClient = serviceClient;
-    }
-
+    
     @GetMapping("all")
-    public List<Client> GetAll(){
+    public List<Client> getAll(){
         return this.serviceClient.findAll();
     }
 
