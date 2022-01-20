@@ -21,7 +21,7 @@ public class Contrat {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int numero;
+	private int id;
 	private String description;
 	private Date dateDebut;
 	private Date dateFin;
@@ -37,13 +37,18 @@ public class Contrat {
 	}
 	
 
-	public int getNumero() {
-		return numero;
+
+	public int getId() {
+		return id;
 	}
 
-	public void setNumero(int numero) {
-		this.numero = numero;
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
+
+
 
 	public String getDescription() {
 		return description;
@@ -96,7 +101,7 @@ public class Contrat {
 
 	@Override
 	public String toString() {
-		return "Contrat [numero=" + numero + ", description=" + description + ", dateDebut=" + dateDebut + ", dateFin="
+		return "Contrat [id=" + id + ", description=" + description + ", dateDebut=" + dateDebut + ", dateFin="
 				+ dateFin + ", status=" + status + ", contratProduits=" + contratProduits + ", client=" + client.getEmail() + "]";
 	}
 

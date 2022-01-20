@@ -37,8 +37,8 @@ public class ContratService {
 	}
 
 	
-	public Optional<Contrat> findById(Integer id) {
-		return dao.findById(id);
+	public Contrat findById(Integer id) {
+		return dao.findById(id).get();
 	}
 
 
@@ -79,6 +79,10 @@ public class ContratService {
 		return dao.save(contrat);
 	}
 	
-	
+	public Contrat update(Contrat contrat,int id) {
+		Contrat c=this.findById(id);
+		c.setStatus(contrat.getStatus());
+		return dao.save(c);
+	}
 
 }

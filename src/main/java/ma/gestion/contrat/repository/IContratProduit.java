@@ -12,7 +12,7 @@ import ma.gestion.contrat.models.ContratProduitKey;
 @Repository
 public interface IContratProduit extends JpaRepository<ContratProduit, ContratProduitKey>{
 	
-	@Query(value = "SELECT * FROM ContratProduit cp WHERE cp.contrat.id = ?1", nativeQuery = true)
+	@Query(value = "SELECT * FROM contrat_produit  WHERE contrat = ?1", nativeQuery = true)
 	List<ContratProduit> findByContractId(Integer id);
 
 }

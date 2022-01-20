@@ -37,13 +37,17 @@ public class ContratProduitService {
 
 	public ContratProduit save(ContratProduit contratProduit) {
 		Produit pr=prService.findById(contratProduit.getProduit().getId());
-		Contrat c= cService.findById(contratProduit.getContrat().getNumero()).get();
+		Contrat c= cService.findById(contratProduit.getContrat().getId());
 		ContratProduit cp =new ContratProduit();
 		cp.setContrat(c);
 		cp.setProduit(pr);
 		cp.setMontant(contratProduit.getMontant());
 		cp.setQuantite(contratProduit.getQuantite());
 		return dao.save(cp);
+	}
+
+	public List<ContratProduit> findByContractId(Integer id) {
+		return dao.findByContractId(id);
 	}
 	
 	

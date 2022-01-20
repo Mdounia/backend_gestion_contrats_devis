@@ -38,6 +38,10 @@ public class DevisProduitService {
 		
 		return dao.findAll();
 	}
+
+	public List<DevisProduit> findByDevisId(Integer id) {
+		return dao.findByDevisId(id);
+	}
 	
 	
 

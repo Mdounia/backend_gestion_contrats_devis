@@ -15,7 +15,7 @@ public class Client {
     private String lastname;
     private String email;
     private int telephone;
-    private int addresse;
+    private String addresse;
 
     public Client() {
     }
@@ -61,13 +61,17 @@ public class Client {
         this.telephone = telephone;
     }
 
-    public int getAddresse() {
-        return addresse;
-    }
 
-    public void setAddresse(int addresse) {
-        this.addresse = addresse;
-    }
+
+
+	public String getAddresse() {
+		return addresse;
+	}
+
+
+	public void setAddresse(String addresse) {
+		this.addresse = addresse;
+	}
 
 
 	@Override

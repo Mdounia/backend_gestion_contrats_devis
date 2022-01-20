@@ -15,28 +15,28 @@ import ma.gestion.contrat.models.Devis;
 import ma.gestion.contrat.services.DevisService;
 
 @RestController
-@RequestMapping("/api/devis")
+@RequestMapping("/api/v3/")
 public class DevisController {
 	
 	@Autowired
 	private DevisService service;
 
-	@DeleteMapping("delete/{id}")
+	@DeleteMapping("/devis/{id}")
 	public void deleteById(@PathVariable Integer id) {
 		service.deleteById(id);
 	}
 
-	@GetMapping("all")
+	@GetMapping("/devis")
 	public List<Devis> findAll() {
 		return service.findAll();
 	}
 
-	@GetMapping("id/{id}")
+	@GetMapping("/devis/{id}")
 	public Devis findById(@PathVariable Integer id) {
 		return service.findById(id);
 	}
 
-	@PostMapping("create")
+	@PostMapping("/devis")
 	public Devis save(@RequestBody Devis devis) {
 		return service.save(devis);
 	}
